@@ -42,23 +42,23 @@ class NavesController extends Controller
         return $allNaves;
     }
 
-    public function add($id, $cantidad){
-        $return['id'] = $id;
-        $return['cantidad'] = $cantidad;
+    public function add(Request $request){
+        $return['id'] = $request->id;
+        $return['cantidad'] = $request->cantidad;
 
         return $return;
     }
 
-    public function substract($id, $cantidad){
-        $return['id'] = $id;
-        $return['cantidad'] = $cantidad;
+    public function substract(Request $request){
+        $return['id'] = $request->id;
+        $return['cantidad'] = $request->cantidad;
 
         return $return;
     }
 
-    public function modify($id, $cantidad){
-        $return['id'] = $id;
-        $return['cantidad'] = $cantidad;
+    public function modify(Request $request){
+        $return['id'] = $request->id;
+        $return['cantidad'] = $request->cantidad;
 
         return $return;
     }
@@ -75,9 +75,9 @@ class NavesController extends Controller
         return $return;
     }
 
-    public function new($id, $cantidad){
-        $return['id'] = $id;
-        $return['cantidad'] = $cantidad;
+    public function new(Request $request){
+        $return['id'] = $request->id;
+        $return['cantidad'] = $request->cantidad;
 
         return $return;
     }

@@ -22,14 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/naves', [NavesController::class, 'index']);
 
-Route::patch('/naves/add/{id}/{cantidad}', [NavesController::class, 'add'])->where(['id' => '[0-9]+','cantidad' => '[0-9]+']);
+Route::post('/naves/new', [NavesController::class, 'new']);
 
-Route::patch('/naves/add/{id}/{cantidad}', [NavesController::class, 'substract'])->where(['id' => '[0-9]+','cantidad' => '[0-9]+']);
+Route::patch('/naves/add', [NavesController::class, 'add']);
 
-Route::patch('/naves/add/{id}/{cantidad}', [NavesController::class, 'modify'])->where(['id' => '[0-9]+','cantidad' => '[0-9]+']);
+Route::patch('/naves/substract', [NavesController::class, 'substract']);
+
+Route::patch('/naves/modify', [NavesController::class, 'modify']);
 
 Route::get('/naves/{id}', [NavesController::class, 'getDetallesById'])->where(['id' => '[0-9]+']);
 
 Route::get('/naves/{busqueda}', [NavesController::class, 'findByKeyword']);
-
-Route::post('/naves/new/{id}/{cantidad}', [NavesController::class, 'new']);
