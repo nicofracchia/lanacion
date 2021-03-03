@@ -20,16 +20,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/naves', [NavesController::class, 'index']);
+Route::get('/naves', [NavesController::class, 'index']); // ---> get all naves OK!
 
-Route::post('/naves/new', [NavesController::class, 'new']);
+Route::get('/naves/inventario', [NavesController::class, 'getInventario']); // ---> get all naves en inventario (bd local) OK!
 
-Route::patch('/naves/add', [NavesController::class, 'add']);
+Route::post('/naves/inventario/new', [NavesController::class, 'new']); // ---> new [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB] OK!
 
-Route::patch('/naves/substract', [NavesController::class, 'substract']);
+Route::patch('/naves/inventario/increment', [NavesController::class, 'increment']); // ---> inc [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB, INC] OK!
 
-Route::patch('/naves/modify', [NavesController::class, 'modify']);
+Route::patch('/naves/inventario/decrement', [NavesController::class, 'decrement']); // ---> dec [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB, DEC] OK!
 
-Route::get('/naves/{id}', [NavesController::class, 'getDetallesById'])->where(['id' => '[0-9]+']);
+Route::patch('/naves/inventario/modify', [NavesController::class, 'modify']); // ---> dec [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB, ANT] OK!
+
+Route::get('/naves/{id}', [NavesController::class, 'getDetallesById'])->where(['id' => '[0-9]+']); // ---> OK!
 
 Route::get('/naves/{busqueda}', [NavesController::class, 'findByKeyword']);
