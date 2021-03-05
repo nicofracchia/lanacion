@@ -3,12 +3,8 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Naves;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class navesTest extends TestCase
 {
@@ -20,17 +16,86 @@ class navesTest extends TestCase
         $this->get('/api/naves')->assertOk();
     }
 
-    public function test_status_ruta_listado_completo_de_naves_en_el_inventario()
-    {
-        $this->get('/api/naves/inventario')->assertOk();
-    }
-
     public function test_status_ruta_detalle_completo_de_naves_desde_SWAPI()
     {
         $ruta = '/api/naves/'.$this->id_swapi_valido_para_nave();
         $this->get($ruta)->assertOk();
     }
 
+    public function test_status_ruta_listado_completo_de_naves_en_el_inventario()
+    {
+        $this->get('/api/naves/inventario')->assertOk();
+    }
+
+    public function test_status_ruta_listado_completo_de_naves_en_el_inventario_busqueda()
+    {
+        $ruta = '/api/naves/inventario/x';
+        $this->get($ruta)->assertOk();
+    }
+
+
+
+    // TEST NAVES BY ID SWAPI
+    public function test_get_naves_by_id_SWAPI(){
+        $this->withoutExceptionHandling();
+
+        $id = $this->id_swapi_valido_para_nave();
+
+        $response = $this->get('/api/naves/'.$id);
+
+        $response->assertJsonStructure(["name", "model", "manufacturer", "url"]);
+
+        $response->assertJson([
+            'url' => "http://swapi.dev/api/starships/".$id."/"
+        ]);
+
+        $response->assertOk();
+    }
+
+    public function test_get_naves_by_id_SWAPI__error_id_nave_inexistente(){
+        $this->withoutExceptionHandling();
+
+        $id = $this->id_swapi_invalido_para_nave();
+
+        $response = $this->get('/api/naves/'.$id);
+
+        $response->assertJsonStructure(["error", "errorMessage", "params"]);
+
+        $response->assertJson([
+            "error" => "ID"
+        ]);
+
+        $response->assertOk();
+    }
+
+    // TEST NAVES BY BUSQUEDA EN INVENTARIO
+    public function test_buscar_naves_en_inventario_por_nombre_modelo_fabricante(){
+        $ids = $this->id_swapi_valido_para_nave(true);
+
+        foreach($ids as $id){
+            $this->insertar_nave_en_inventario($id);
+        }
+
+        $this->assertCount(3, Naves::all());
+
+        $response = $this->get('/api/naves/inventario/star');
+
+        $response->dump();
+
+        $response->assertJsonCount(3);
+
+        $response->assertOk();
+    }
+
+    public function test_buscar_naves_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados(){
+        $response = $this->get('/api/naves/inventario/sin resultados');
+
+        $response->assertJsonStructure(["error", "errorMessage", "params"]);
+
+        $response->assertJson(['error' => 'Sin resultados']);
+
+        $response->assertOk();
+    }
 
     // TESTS INGRESO
     public function test_agregar_nueva_nave_al_inventario()
@@ -216,8 +281,8 @@ class navesTest extends TestCase
     }
 
     // VALORES PARA PRUEBAS
-    public function id_swapi_valido_para_nave(){
-        return 15;
+    public function id_swapi_valido_para_nave($varios = false){
+        return ($varios) ? Array(9, 15, 40) : 15;
     }
 
     public function id_swapi_invalido_para_nave(){

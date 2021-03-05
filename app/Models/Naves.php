@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class Naves extends Model
 {
@@ -22,8 +23,29 @@ class Naves extends Model
         return $inventario;
     }
 
-    public function findBySwapiId($id = 0){
+    public function getByIdSwapi($id){
+        $ruta = "https://swapi.dev/api/starships/".$id."/";
+        $response = Http::get($ruta);
+
+        return $response;
+    }
+
+    public function getNavesByPaginaSWAPI($ruta){
+        return Http::get($ruta);
+    }
+
+    public function findBySwapiIdInventario($id = 0){
         $nave = DB::table('naves')->get()->where('id_swapi', $id)->first();
+        return $nave;
+    }
+
+    public function findNaveByBusquedaInventario($busqueda){
+        $nave = DB::table('naves')->select('id_swapi','nombre','modelo','fabricante','unidades')
+                ->where('nombre', 'LIKE', '%'.$busqueda.'%')
+                ->orWhere('modelo', 'LIKE', '%'.$busqueda.'%')
+                ->orWhere('fabricante', 'LIKE', '%'.$busqueda.'%')
+                ->get();
+
         return $nave;
     }
 

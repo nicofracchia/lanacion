@@ -21,8 +21,8 @@ class NavesController extends Controller
             return $this->returnError('ID', 'El ID de la nave a ingresar debe ser un número entero.', ['id' => $id]);
         }
 
-        $ruta = "https://swapi.dev/api/starships/".$id."/";
-        $response = Http::get($ruta);
+        $naves = new Naves;
+        $response = $naves->getByIdSwapi($id);
 
         if(isset($response['detail']) and $response['detail'] == "Not found"){
             return $this->returnError('ID', 'No se pudo encontrar una nave relacionada al ID ingresado.', ['id' => $id]);
@@ -33,7 +33,10 @@ class NavesController extends Controller
 
     public function getNavesByPagina($ruta = 0){
         $ruta = ($ruta !== 0) ? $ruta : 'http://swapi.dev/api/starships/';
-        $response = Http::get($ruta);
+
+        $naves = new Naves;
+        $response = $naves->getNavesByPaginaSWAPI($ruta);
+
         return $response;
     }
 
@@ -65,7 +68,7 @@ class NavesController extends Controller
     public function increment(Request $request, Naves $naves){
         $id = $request->id_swapi;
 
-        $naveBD = $naves->findBySwapiId($id);
+        $naveBD = $naves->findBySwapiIdInventario($id);
 
         if($naveBD === null)
             return $this->returnError('Nave inexistente', 'Debe registrar la nave en el inventario para agregar unidades.', ['id_swapi' => $id]);
@@ -86,7 +89,7 @@ class NavesController extends Controller
     public function decrement(Request $request, Naves $naves){
         $id = $request->id_swapi;
 
-        $naveBD = $naves->findBySwapiId($id);
+        $naveBD = $naves->findBySwapiIdInventario($id);
 
         if($naveBD === null)
             return $this->returnError('Nave inexistente', 'Debe registrar la nave en el inventario para restar unidades.', ['id_swapi' => $id]);
@@ -106,7 +109,7 @@ class NavesController extends Controller
     public function modify(Request $request, Naves $naves){
         $id = $request->id_swapi;
 
-        $naveBD = $naves->findBySwapiId($id);
+        $naveBD = $naves->findBySwapiIdInventario($id);
 
         if($naveBD === null)
             return $this->returnError('Nave inexistente', 'Debe registrar la nave en el inventario para restar unidades.', ['id_swapi' => $id]);
@@ -127,10 +130,14 @@ class NavesController extends Controller
         return $this->getNaveById(intval($id));
     }
 
-    public function findByKeyword($busqueda){
-        $return['busqueda'] = $busqueda;
+    public function findByKeyword($busqueda, Naves $naves){
+        $nave = $naves->findNaveByBusquedaInventario($busqueda);
+        $nave = json_decode($nave);
 
-        return $return;
+        if(count($nave) == 0)
+            $nave = $this->returnError('Sin resultados', 'No se encontraron naves para esa búsqueda.', ['busqueda' => $busqueda]);
+
+        return $nave;
     }
 
     public function new(Request $request, Naves $naves){
@@ -143,7 +150,7 @@ class NavesController extends Controller
             return json_encode($nave);
 
         // Verifica que la nave NO este cargada en la base de datos.
-        $naveBD = $naves->findBySwapiId($id);
+        $naveBD = $naves->findBySwapiIdInventario($id);
         if($naveBD !== null)
             return $this->returnError('Nave existente', 'La nave ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.', ['id' => $id, 'unidades' => $unidades]);
 

@@ -16,18 +16,18 @@ use App\Http\Controllers\VehiculosController;
 |
 */
 
-Route::get('/naves', [NavesController::class, 'index']); // ---> get all naves OK!
+Route::get('/naves', [NavesController::class, 'index']);
 
-Route::get('/naves/inventario', [NavesController::class, 'getInventario']); // ---> get all naves en inventario (bd local) OK!
+Route::get('/naves/inventario', [NavesController::class, 'getInventario']);
 
-Route::post('/naves/inventario/new', [NavesController::class, 'new']); // ---> new [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB] OK!
+Route::post('/naves/inventario/new', [NavesController::class, 'new']);
 
-Route::patch('/naves/inventario/increment', [NavesController::class, 'increment']); // ---> inc [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB, INC] OK!
+Route::patch('/naves/inventario/increment', [NavesController::class, 'increment']);
 
-Route::patch('/naves/inventario/decrement', [NavesController::class, 'decrement']); // ---> dec [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB, DEC] OK!
+Route::patch('/naves/inventario/decrement', [NavesController::class, 'decrement']);
 
-Route::patch('/naves/inventario/modify', [NavesController::class, 'modify']); // ---> dec [ID, UNIDADES] => [ID, CANT, NOM, MOD, FAB, ANT] OK!
+Route::patch('/naves/inventario/modify', [NavesController::class, 'modify']);
 
-Route::get('/naves/{id}', [NavesController::class, 'getDetallesById'])->where(['id' => '[0-9]+']); // ---> OK!
+Route::get('/naves/{id}', [NavesController::class, 'getDetallesById'])->where(['id' => '[0-9]+']);
 
-Route::get('/naves/{busqueda}', [NavesController::class, 'findByKeyword']);
+Route::get('/naves/inventario/{busqueda}', [NavesController::class, 'findByKeyword']);
