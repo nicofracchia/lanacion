@@ -29,8 +29,8 @@ class Naves extends Model
 
     public function insertInventario($params){
         $id = DB::table('naves')->insertGetId([
-            'id_swapi' => $params['id_swapi'], 
-            'unidades' => $params['cantidad'],
+            'id_swapi' => $params['id_swapi'],
+            'unidades' => $params['unidades'],
             'nombre' => $params['nombre'],
             'modelo' => $params['modelo'],
             'fabricante' => $params['fabricante'],
@@ -44,13 +44,13 @@ class Naves extends Model
             ->where('id_swapi', $params['id_swapi'])
             ->increment('unidades', $params['increment']);
     }
-    
+
     public function decrementInventario($params){
         DB::table('naves')
             ->where('id_swapi', $params['id_swapi'])
             ->decrement('unidades', $params['decrement']);
     }
-    
+
     public function updateInventario($params){
         DB::table('naves')
             ->where('id_swapi', $params['id_swapi'])

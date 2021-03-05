@@ -9,7 +9,7 @@ use App\Models\Naves;
 
 class NavesController extends Controller
 {
-    
+
     public function index()
     {
         $allNaves = $this->getAllNaves();
@@ -18,21 +18,14 @@ class NavesController extends Controller
 
     public function getNaveById($id){
         if($id === 0 or !is_int($id)){
-            $return = [
-                'error' => 'ID',
-                'errorMessage' => 'El ID de la nave a ingresar debe ser un número entero.'
-            ];
-            return json_encode($return);
+            return $this->returnError('ID', 'El ID de la nave a ingresar debe ser un número entero.', ['id' => $id]);
         }
-        
+
         $ruta = "https://swapi.dev/api/starships/".$id."/";
         $response = Http::get($ruta);
+
         if(isset($response['detail']) and $response['detail'] == "Not found"){
-            $return = [
-                'error' => 'ID',
-                'errorMessage' => 'No se pudo encontrar una nave relacionada al ID ingresado.'
-            ];
-            return json_encode($return);
+            return $this->returnError('ID', 'No se pudo encontrar una nave relacionada al ID ingresado.', ['id' => $id]);
         }
 
         return $response;
@@ -65,119 +58,103 @@ class NavesController extends Controller
         return $allNaves;
     }
 
-    public function getInventario(){
-        $naves = new Naves;
-
+    public function getInventario(Naves $naves){
         return $naves->getInventario();
     }
 
     public function increment(Request $request, Naves $naves){
-        $naveBD = $naves->findBySwapiId($request->id);
-        
-        if($naveBD !== null){
-            $params = [
-                "id_swapi" => $request->id,
-                "nombre" => $naveBD->nombre,
-                "modelo" => $naveBD->modelo,
-                "fabricante" => $naveBD->fabricante,
-                "unidades" => $naveBD->unidades + $request->unidades,
-                "increment" => $request->unidades
-            ];
-            $naves->incrementInventario($params); 
-            $return = $params;
-        }else{
-            $return['error'] = "Nave inexistente";
-            $return['errorMessage'] = "Debe registrar la nave en el inventario para agregar unidades.";
-        }
+        $id = $request->id_swapi;
 
-        return $return;
+        $naveBD = $naves->findBySwapiId($id);
+
+        if($naveBD === null)
+            return $this->returnError('Nave inexistente', 'Debe registrar la nave en el inventario para agregar unidades.', ['id_swapi' => $id]);
+
+
+        $params = [
+            "id_swapi" => $request->id_swapi,
+            "nombre" => $naveBD->nombre,
+            "modelo" => $naveBD->modelo,
+            "fabricante" => $naveBD->fabricante,
+            "unidades" => $naveBD->unidades + $request->unidades,
+            "increment" => $request->unidades
+        ];
+        $naves->incrementInventario($params);
+        return $params;
     }
 
     public function decrement(Request $request, Naves $naves){
-        $naveBD = $naves->findBySwapiId($request->id);
-        
-        if($naveBD !== null){
-            $params = [
-                "id_swapi" => $request->id,
-                "nombre" => $naveBD->nombre,
-                "modelo" => $naveBD->modelo,
-                "fabricante" => $naveBD->fabricante,
-                "unidades" => $naveBD->unidades - $request->unidades,
-                "decrement" => $request->unidades
-            ];
-            $naves->decrementInventario($params); 
-            $return = $params;
-        }else{
-            $return['error'] = "Nave inexistente";
-            $return['errorMessage'] = "Debe registrar la nave en el inventario para restar unidades.";
-        }
+        $id = $request->id_swapi;
 
-        return $return;
+        $naveBD = $naves->findBySwapiId($id);
+
+        if($naveBD === null)
+            return $this->returnError('Nave inexistente', 'Debe registrar la nave en el inventario para restar unidades.', ['id_swapi' => $id]);
+
+        $params = [
+            "id_swapi" => $request->id_swapi,
+            "nombre" => $naveBD->nombre,
+            "modelo" => $naveBD->modelo,
+            "fabricante" => $naveBD->fabricante,
+            "unidades" => $naveBD->unidades - $request->unidades,
+            "decrement" => $request->unidades
+        ];
+        $naves->decrementInventario($params);
+        return $params;
     }
 
     public function modify(Request $request, Naves $naves){
-        $naveBD = $naves->findBySwapiId($request->id);
-        
-        if($naveBD !== null){
-            $params = [
-                "id_swapi" => $request->id,
-                "nombre" => $naveBD->nombre,
-                "modelo" => $naveBD->modelo,
-                "fabricante" => $naveBD->fabricante,
-                "unidades" => $request->unidades,
-                "cantidadAnterior" => $naveBD->unidades
-            ];
-            $naves->updateInventario($params); 
-            $return = $params;
-        }else{
-            $return['error'] = "Nave inexistente";
-            $return['errorMessage'] = "Debe registrar la nave en el inventario para modificar las unidades.";
-        }
+        $id = $request->id_swapi;
 
-        return $return;
+        $naveBD = $naves->findBySwapiId($id);
+
+        if($naveBD === null)
+            return $this->returnError('Nave inexistente', 'Debe registrar la nave en el inventario para restar unidades.', ['id_swapi' => $id]);
+
+        $params = [
+            "id_swapi" => $request->id_swapi,
+            "nombre" => $naveBD->nombre,
+            "modelo" => $naveBD->modelo,
+            "fabricante" => $naveBD->fabricante,
+            "unidades" => $request->unidades,
+            "cantidadAnterior" => $naveBD->unidades
+        ];
+        $naves->updateInventario($params);
+        return $params;
     }
 
     public function getDetallesById($id){
         return $this->getNaveById(intval($id));
     }
 
-    public function findByKeyword($id){
+    public function findByKeyword($busqueda){
         $return['busqueda'] = $busqueda;
 
         return $return;
     }
 
     public function new(Request $request, Naves $naves){
-        $id = $request->id;
+        $id = $request->id_swapi;
         $unidades = (isset($request->unidades)) ? $request->unidades : 0;
         $nave = json_decode($this->getNaveById($id));
-        $return['id_swapi'] = $id;
-        $return['unidades'] = $unidades;
 
-        // Si la nave existe en SWAPI reviso que no exista en la tabla local
-        if(!isset($nave->error)){
-            $naveBD = $naves->findBySwapiId($id);
-            
-            // Si la nave no existe en la tabla local la agrego con las unidades ingresadas
-            if($naveBD === null){
-                $params = [
-                    "id_swapi" => $id,
-                    "nombre" => $nave->name,
-                    "modelo" => $nave->model,
-                    "fabricante" => $nave->manufacturer,
-                    "unidades" => $unidades
-                ];
-                $insert = $naves->insertInventario($params); 
-                $return = $params;
-            }else{
-                $return['error'] = "Nave existente";
-                $return['errorMessage'] = "La nave ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.";
-            }
-        }else{
-            $return['error'] = $nave->error;
-            $return['errorMessage'] = $nave->errorMessage;
-        }
+        // Verifica que la nave exista en SWAPI.
+        if(isset($nave->error))
+            return json_encode($nave);
 
-        return $return;
+        // Verifica que la nave NO este cargada en la base de datos.
+        $naveBD = $naves->findBySwapiId($id);
+        if($naveBD !== null)
+            return $this->returnError('Nave existente', 'La nave ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.', ['id' => $id, 'unidades' => $unidades]);
+
+        // Si existe en SWAPI y NO esta registrada en la bd la agrega.
+        $params = [
+            "id_swapi" => $id,
+            "nombre" => $nave->name,
+            "modelo" => $nave->model,
+            "fabricante" => $nave->manufacturer, "unidades" => $unidades
+        ];
+        $naves->insertInventario($params);
+        return json_encode($params);
     }
 }

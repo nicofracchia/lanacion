@@ -16,10 +16,6 @@ use App\Http\Controllers\VehiculosController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('/naves', [NavesController::class, 'index']); // ---> get all naves OK!
 
 Route::get('/naves/inventario', [NavesController::class, 'getInventario']); // ---> get all naves en inventario (bd local) OK!
