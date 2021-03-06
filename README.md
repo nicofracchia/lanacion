@@ -41,7 +41,7 @@
 
 # DOCUMENTACIÓN
 
-### Índice
+## Índice
 
 <details>
 <summary>
@@ -106,12 +106,9 @@
     
 </details>
 
-### Naves
+## Naves
 
-
-
-
-##### Obtener todas las naves de SWAPI
+### Obtener todas las naves de SWAPI
 ###### Ruta: /api/naves/ 
 <p>Devuelve un array con los datos basicos de todas las naves en SWAPI.</p>
 
@@ -136,7 +133,7 @@
 
 
 
-##### Obtener detalle de una nave en SWAPI
+### Obtener detalle de una nave en SWAPI
 ###### Ruta: /api/naves/{id}
 <p>Devuelve un objeto con el detalle completo de la nave SWAPI.</p>
 
@@ -177,7 +174,7 @@ Ejemplo: /api/naves/12
 
 
 
-##### Obtener todas las naves registradas en el inventario
+### Obtener todas las naves registradas en el inventario
 ###### Ruta: /api/naves/inventario
 <p>Devuelve un array con los datos básicos de las naves registradas en el inventario.</p>
 
