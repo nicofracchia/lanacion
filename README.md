@@ -108,6 +108,9 @@
 
 ### Naves
 
+
+
+
 ##### Obtener todas las naves de SWAPI
 ###### Ruta: /api/naves/ 
 <p>Devuelve un array con los datos basicos de todas las naves en SWAPI.</p>
@@ -129,6 +132,9 @@
     ...
 ]
 ```
+
+
+
 
 ##### Obtener detalle de una nave en SWAPI
 ###### Ruta: /api/naves/{id}
@@ -166,4 +172,27 @@ Ejemplo: /api/naves/12
     "edited": "2014-12-20T21:23:49.886000Z",
     "url": "http://swapi.dev/api/starships/12/"
 }
+```
+
+
+
+
+##### Obtener todas las naves registradas en el inventario
+###### Ruta: /api/naves/inventario
+<p>Devuelve un array con los datos básicos de las naves registradas en el inventario.</p>
+
+```
+[
+    {
+        "id": 1,
+        "id_swapi": 40,
+        "nombre": "Naboo Royal Starship",
+        "modelo": "J-type 327 Nubian royal starship",
+        "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+        "unidades": 150,
+        "created_at": "2021-03-05 18:48:48",
+        "updated_at": null
+    },
+    ...
+]
 ```
