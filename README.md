@@ -50,7 +50,7 @@
 
 <ul>
 <li><a href="#obtener-todas-las-naves-de-swapi"> Obtener todas las naves de SWAPI</a></li>
-<li><a href="http://algo.com"> Obtener detalle de una nave en SWAPI</a></li>
+<li><a href="#obtener-detalle-de-una-nave-en-swapi"> Obtener detalle de una nave en SWAPI</a></li>
 <li><a href="http://algo.com"> Obtener todas las naves registradas en el inventario</a></li>
 <li><a href="http://algo.com"> Agregar nave al inventario</a></li>
 <li><a href="http://algo.com"> Incrementar en X unidades el numero de una nave específica</a></li>
