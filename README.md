@@ -55,7 +55,7 @@
 <li><a href="#agregar-nave-al-inventario"> Agregar nave al inventario</a></li>
 <li><a href="#incrementar-en-x-unidades-el-total-de-una-nave-específica"> Incrementar en X unidades el total de una nave específica</a></li>
 <li><a href="#disminuir-en-x-unidades-el-numero-de-una-nave-específica"> Disminuir en X unidades el total de una nave específica</a></li>
-<li><a href="http://algo.com"> Establecer el total de unidades de una nave específica</a></li>
+<li><a href="#establecer-el-total-de-unidades-de-una-nave-específica"> Establecer el total de unidades de una nave específica</a></li>
 <li><a href="http://algo.com"> Buscar naves en el inventario</a></li>
 </ul>
     
@@ -311,5 +311,52 @@ Return OK (Ejemplo):
     "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
     "unidades": 250,
     "cantidadAnterior": 190
+}
+```
+
+
+### Buscar naves en el inventario
+###### Ruta: /api/naves/inventario/{busqueda}
+###### Method: GET
+<p>Busca la nave en el inventario por los campos "nombre", "modelo", "fabricante" y devuelve un array con las naves que coincidan.</p>
+
+Return OK (Ejemplo):
+
+```
+[
+    {
+        "id_swapi": 40,
+        "nombre": "Naboo Royal Starship",
+        "modelo": "J-type 327 Nubian royal starship",
+        "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+        "unidades": 250
+    },
+    {
+        "id_swapi": 9,
+        "nombre": "Death Star",
+        "modelo": "DS-1 Orbital Battle Station",
+        "fabricante": "Imperial Department of Military Research, Sienar Fleet Systems",
+        "unidades": 150
+    },
+    {
+        "id_swapi": 15,
+        "nombre": "Executor",
+        "modelo": "Executor-class star dreadnought",
+        "fabricante": "Kuat Drive Yards, Fondor Shipyards",
+        "unidades": 150
+    },
+    ...
+]
+```
+
+Return ERROR (Ejemplo):
+
+```
+{
+    "error": "Sin resultados",
+    "errorMessage": "No se encontraron naves para esa búsqueda.",
+    "params": {
+        "busqueda": "xxx"
+    }
 }
 ```
