@@ -176,7 +176,7 @@ Ejemplo: /api/naves/12
 
 ### Obtener todas las naves registradas en el inventario
 ###### Ruta: /api/naves/inventario
-<p>Devuelve un array con los datos básicos de las naves registradas en el inventario.</p>
+<p>Devuelve un array con las unidades y otros datos básicos de las naves registradas en el inventario.</p>
 
 ```
 [
