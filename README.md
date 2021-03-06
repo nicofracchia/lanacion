@@ -52,7 +52,7 @@
 <li><a href="#obtener-todas-las-naves-de-swapi"> Obtener todas las naves de SWAPI</a></li>
 <li><a href="#obtener-detalle-de-una-nave-en-swapi"> Obtener detalle de una nave en SWAPI</a></li>
 <li><a href="#obtener-todas-las-naves-registradas-en-el-inventario"> Obtener todas las naves registradas en el inventario</a></li>
-<li><a href="http://algo.com"> Agregar nave al inventario</a></li>
+<li><a href="#agregar-nave-al-inventario"> Agregar nave al inventario</a></li>
 <li><a href="http://algo.com"> Incrementar en X unidades el numero de una nave específica</a></li>
 <li><a href="http://algo.com"> Disminuir en X unidades el numero de una nave específica</a></li>
 <li><a href="http://algo.com"> Establecer el total de unidades de una nave específica</a></li>
@@ -110,7 +110,7 @@
 
 ### Obtener todas las naves de SWAPI
 ###### Ruta: /api/naves/ 
-###### Mthod: GET
+###### Method: GET
 <p>Devuelve un array con los datos basicos de todas las naves en SWAPI.</p>
 
 ```
@@ -134,7 +134,7 @@
 
 ### Obtener detalle de una nave en SWAPI
 ###### Ruta: /api/naves/{id}
-###### Mthod: GET
+###### Method: GET
 <p>Devuelve un objeto con el detalle completo de la nave SWAPI.</p>
 
 ```
@@ -174,7 +174,7 @@ Ejemplo: /api/naves/12
 
 ### Obtener todas las naves registradas en el inventario
 ###### Ruta: /api/naves/inventario
-###### Mthod: GET
+###### Method: GET
 <p>Devuelve un array con las unidades y otros datos básicos de las naves registradas en el inventario.</p>
 
 ```
@@ -196,7 +196,7 @@ Ejemplo: /api/naves/12
 
 ### Agregar nave al inventario
 ###### Ruta: /api/naves/inventario/new
-###### Mthod: POST
+###### Method: POST
 <p>Crea la nave en el inventario y devuelve un objeto con los datos basicos de la nave ingresada</p>
 
 ```
