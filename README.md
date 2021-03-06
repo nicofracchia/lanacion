@@ -54,7 +54,7 @@
 <li><a href="#obtener-todas-las-naves-registradas-en-el-inventario"> Obtener todas las naves registradas en el inventario</a></li>
 <li><a href="#agregar-nave-al-inventario"> Agregar nave al inventario</a></li>
 <li><a href="#incrementar-en-x-unidades-el-total-de-una-nave-específica"> Incrementar en X unidades el total de una nave específica</a></li>
-<li><a href="http://algo.com"> Disminuir en X unidades el total de una nave específica</a></li>
+<li><a href="#disminuir-en-x-unidades-el-numero-de-una-nave-específica"> Disminuir en X unidades el total de una nave específica</a></li>
 <li><a href="http://algo.com"> Establecer el total de unidades de una nave específica</a></li>
 <li><a href="http://algo.com"> Buscar naves en el inventario</a></li>
 </ul>
