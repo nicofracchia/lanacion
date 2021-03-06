@@ -17,7 +17,7 @@
     rename .env.example .env
     
 ## Configurar los datos de conexión en .env
-    Agregar la variable ** DB_TEST_DATABASE=lanacion_testing **
+    Agregar la variable DB_TEST_DATABASE=lanacion_testing
     
 ## Ejecutar migraciones para la base de datos
     php artisan migrate
