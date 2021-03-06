@@ -53,8 +53,8 @@
 <li><a href="#obtener-detalle-de-una-nave-en-swapi"> Obtener detalle de una nave en SWAPI</a></li>
 <li><a href="#obtener-todas-las-naves-registradas-en-el-inventario"> Obtener todas las naves registradas en el inventario</a></li>
 <li><a href="#agregar-nave-al-inventario"> Agregar nave al inventario</a></li>
-<li><a href="http://algo.com"> Incrementar en X unidades el numero de una nave específica</a></li>
-<li><a href="http://algo.com"> Disminuir en X unidades el numero de una nave específica</a></li>
+<li><a href="http://algo.com"> Incrementar en X unidades el total de una nave específica</a></li>
+<li><a href="http://algo.com"> Disminuir en X unidades el total de una nave específica</a></li>
 <li><a href="http://algo.com"> Establecer el total de unidades de una nave específica</a></li>
 <li><a href="http://algo.com"> Buscar naves en el inventario</a></li>
 </ul>
@@ -71,8 +71,8 @@
 <li><a href="http://algo.com"> Obtener detalle de un vehículo en SWAPI</a></li>
 <li><a href="http://algo.com"> Obtener todos los vehículos registradas en el inventario</a></li>
 <li><a href="http://algo.com"> Agregar vehículos al inventario</a></li>
-<li><a href="http://algo.com"> Incrementar en X unidades el numero de un vehículos específico</a></li>
-<li><a href="http://algo.com"> Disminuir en X unidades el numero de un vehículos específico</a></li>
+<li><a href="http://algo.com"> Incrementar en X unidades el total de un vehículos específico</a></li>
+<li><a href="http://algo.com"> Disminuir en X unidades el total de un vehículos específico</a></li>
 <li><a href="http://algo.com"> Establecer el total de unidades de un vehículos específico</a></li>
 <li><a href="http://algo.com"> Buscar vehículos en el inventario</a></li>
 </ul>
@@ -230,5 +230,32 @@ Return ERROR (Ejemplo):
         "id": 12,
         "unidades": 150
     }
+}
+```
+
+
+### Incrementar en X unidades el total de una nave específica
+###### Ruta: /api/naves/inventario/increment
+###### Method: PATCH
+<p>Suma X unidades en el total de la nave registrada y devuelve uno bjeto con los datos básicos de esa nave y la cantidad sumada</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|requerido
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 40,
+    "nombre": "Naboo Royal Starship",
+    "modelo": "J-type 327 Nubian royal starship",
+    "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+    "unidades": 200,
+    "increment": 50
 }
 ```
