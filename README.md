@@ -110,6 +110,7 @@
 
 ### Obtener todas las naves de SWAPI
 ###### Ruta: /api/naves/ 
+###### Mthod: GET
 <p>Devuelve un array con los datos basicos de todas las naves en SWAPI.</p>
 
 ```
@@ -131,10 +132,9 @@
 ```
 
 
-
-
 ### Obtener detalle de una nave en SWAPI
 ###### Ruta: /api/naves/{id}
+###### Mthod: GET
 <p>Devuelve un objeto con el detalle completo de la nave SWAPI.</p>
 
 ```
@@ -172,10 +172,9 @@ Ejemplo: /api/naves/12
 ```
 
 
-
-
 ### Obtener todas las naves registradas en el inventario
 ###### Ruta: /api/naves/inventario
+###### Mthod: GET
 <p>Devuelve un array con las unidades y otros datos básicos de las naves registradas en el inventario.</p>
 
 ```
@@ -192,4 +191,37 @@ Ejemplo: /api/naves/12
     },
     ...
 ]
+```
+
+
+### Agregar nave al inventario
+###### Ruta: /api/naves/inventario/new
+###### Mthod: POST
+<p>Crea la nave en el inventario y devuelve un objeto con los datos basicos de la nave ingresada</p>
+
+```
+Request:
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|opcional
+}
+
+Return OK (ejemplo):
+{
+    "id_swapi": 12,
+    "nombre": "X-wing",
+    "modelo": "T-65 X-wing",
+    "fabricante": "Incom Corporation",
+    "unidades": 150
+}
+
+Return ERROR (ejemplo):
+{
+    "error": "Nave existente",
+    "errorMessage": "La nave ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.",
+    "params": {
+        "id": 12,
+        "unidades": 150
+    }
+}
 ```
