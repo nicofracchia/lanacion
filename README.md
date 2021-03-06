@@ -286,3 +286,30 @@ Return OK (Ejemplo):
     "decrement": 10
 }
 ```
+
+
+### Establecer el total de unidades de una nave específica
+###### Ruta: /api/naves/inventario/modify
+###### Method: PATCH
+<p>Modifica el total de unidades de la nave registrada y devuelve uno bjeto con los datos básicos de esa nave y la cantidad anterior</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|requerido
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 40,
+    "nombre": "Naboo Royal Starship",
+    "modelo": "J-type 327 Nubian royal starship",
+    "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+    "unidades": 250,
+    "cantidadAnterior": 190
+}
+```
