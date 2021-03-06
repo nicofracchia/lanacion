@@ -259,3 +259,30 @@ Return OK (Ejemplo):
     "increment": 50
 }
 ```
+
+
+### Disminuir en X unidades el numero de una nave específica
+###### Ruta: /api/naves/inventario/decrement
+###### Method: PATCH
+<p>Resta X unidades en el total de la nave registrada y devuelve uno bjeto con los datos básicos de esa nave y la cantidad restada</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|requerido
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 40,
+    "nombre": "Naboo Royal Starship",
+    "modelo": "J-type 327 Nubian royal starship",
+    "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+    "unidades": 190,
+    "decrement": 10
+}
+```
