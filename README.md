@@ -56,7 +56,7 @@
 <li><a href="#incrementar-en-x-unidades-el-total-de-una-nave-específica"> Incrementar en X unidades el total de una nave específica</a></li>
 <li><a href="#disminuir-en-x-unidades-el-numero-de-una-nave-específica"> Disminuir en X unidades el total de una nave específica</a></li>
 <li><a href="#establecer-el-total-de-unidades-de-una-nave-específica"> Establecer el total de unidades de una nave específica</a></li>
-<li><a href="http://algo.com"> Buscar naves en el inventario</a></li>
+<li><a href="#buscar-naves-en-el-inventario"> Buscar naves en el inventario</a></li>
 </ul>
     
 </details>
