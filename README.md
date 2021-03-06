@@ -105,3 +105,26 @@
 </ul>
     
 </details>
+
+### Naves
+##### Obtener todas las naves de SWAPI
+###### Ruta: /api/naves/ 
+<p>Devuelve un array con los datos basicos de todas las naves en SWAPI.</p>
+
+```
+[
+    {
+        "id": "2",
+        "nombre": "CR90 corvette",
+        "modelo": "CR90 corvette",
+        "fabricante": "Corellian Engineering Corporation"
+    },
+    {
+        "id": "3",
+        "nombre": "Star Destroyer",
+        "modelo": "Imperial I-class Star Destroyer",
+        "fabricante": "Kuat Drive Yards"
+    },
+    ...
+]
+```
