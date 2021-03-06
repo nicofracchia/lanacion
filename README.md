@@ -1,4 +1,4 @@
-# INSTALACIÓN
+# INSTALACIÓN - LOCAL
 
 ##### Clonar repositorio
     git clone https://github.com/nicofracchia/lanacion.git
