@@ -205,7 +205,9 @@ Request:
     "id_swapi": entero|requerido,
     "unidades": entero|opcional
 }
+```
 
+```
 Return OK (ejemplo):
 {
     "id_swapi": 12,
@@ -214,7 +216,9 @@ Return OK (ejemplo):
     "fabricante": "Incom Corporation",
     "unidades": 150
 }
+```
 
+```
 Return ERROR (ejemplo):
 {
     "error": "Nave existente",
