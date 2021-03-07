@@ -647,3 +647,40 @@ Return ERROR (Ejemplo):
 ###### Comando: vendor\bin\phpunit --filter test_modificar_unidades_a_nave_en_inventario
 ### test_modificar_unidades_a_nave_en_inventario__error_nave_sin_registrar
 ###### Comando: vendor\bin\phpunit --filter test_modificar_unidades_a_nave_en_inventario__error_nave_sin_registrar
+
+## Testing vehículos
+
+### test_status_ruta_listado_completo_de_vehiculos_desde_SWAPI
+###### Comando: vendor\bin\phpunit --filter test_status_ruta_listado_completo_de_vehiculos_desde_SWAPI
+### test_status_ruta_detalle_completo_de_vehiculos_desde_SWAPI
+###### Comando: vendor\bin\phpunit --filter test_status_ruta_detalle_completo_de_vehiculos_desde_SWAPI
+### test_status_ruta_listado_completo_de_vehiculos_en_el_inventario
+###### Comando: vendor\bin\phpunit --filter test_status_ruta_listado_completo_de_vehiculos_en_el_inventario
+### test_status_ruta_listado_completo_de_vehiculos_en_el_inventario_busqueda
+###### Comando: vendor\bin\phpunit --filter test_status_ruta_listado_completo_de_vehiculos_en_el_inventario_busqueda
+### test_get_vehiculos_by_id_SWAPI
+###### Comando: vendor\bin\phpunit --filter test_get_vehiculos_by_id_SWAPI
+### test_get_vehiculos_by_id_SWAPI__error_id_vehiculo_inexistente
+###### Comando: vendor\bin\phpunit --filter test_get_vehiculos_by_id_SWAPI__error_id_vehiculo_inexistente
+### test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante
+###### Comando: vendor\bin\phpunit --filter test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante
+### test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados
+###### Comando: vendor\bin\phpunit --filter test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados
+### test_agregar_nuevo_vehiculo_al_inventario
+###### Comando: vendor\bin\phpunit --filter test_agregar_nuevo_vehiculo_al_inventario
+### test_agregar_nuevo_vehiculo_al_inventario__error_no_existe_en_SWAPI
+###### Comando: vendor\bin\phpunit --filter test_agregar_nuevo_vehiculo_al_inventario__error_no_existe_en_SWAPI
+### test_agregar_nuevo_vehiculo_al_inventario__error_ya_existe_en_el_inventario
+###### Comando: vendor\bin\phpunit --filter test_agregar_nuevo_vehiculo_al_inventario__error_ya_existe_en_el_inventario
+### test_agregar_unidades_a_vehiculo_en_inventario
+###### Comando: vendor\bin\phpunit --filter test_agregar_unidades_a_vehiculo_en_inventario
+### test_agregar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar
+###### Comando: vendor\bin\phpunit --filter test_agregar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar
+### test_restar_unidades_a_vehiculo_en_inventario
+###### Comando: vendor\bin\phpunit --filter test_restar_unidades_a_vehiculo_en_inventario
+### test_restar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar
+###### Comando: vendor\bin\phpunit --filter test_restar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar
+### test_modificar_unidades_a_vehiculo_en_inventario
+###### Comando: vendor\bin\phpunit --filter test_modificar_unidades_a_vehiculo_en_inventario
+### test_modificar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar
+###### Comando: vendor\bin\phpunit --filter test_modificar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar
