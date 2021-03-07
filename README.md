@@ -360,3 +360,236 @@ Return ERROR (Ejemplo):
     }
 }
 ```
+
+## Vehículos
+
+### Obtener todos los vehículos de SWAPI
+###### Ruta: /api/vehiculos/ 
+###### Method: GET
+<p>Devuelve un array con los datos básicos de todos los vehículos en SWAPI.</p>
+Return:
+
+```
+[
+    {
+        "id": "4",
+        "nombre": "Sand Crawler",
+        "modelo": "Digger Crawler",
+        "fabricante": "Corellia Mining Corporation"
+    },
+    {
+        "id": "6",
+        "nombre": "T-16 skyhopper",
+        "modelo": "T-16 skyhopper",
+        "fabricante": "Incom Corporation"
+    },
+    ...
+]
+```
+
+
+### Obtener detalle de un vehículo en SWAPI
+###### Ruta: /api/vehículos/{id}
+###### Method: GET
+<p>Devuelve un objeto con el detalle completo del vehículo SWAPI.</p>
+Return (Ejemplo: /api/vehiculos/12):
+
+```
+{
+    "name": "Sand Crawler",
+    "model": "Digger Crawler",
+    "manufacturer": "Corellia Mining Corporation",
+    "cost_in_credits": "150000",
+    "length": "36.8 ",
+    "max_atmosphering_speed": "30",
+    "crew": "46",
+    "passengers": "30",
+    "cargo_capacity": "50000",
+    "consumables": "2 months",
+    "vehicle_class": "wheeled",
+    "pilots": [],
+    "films": [
+        "http://swapi.dev/api/films/1/",
+        "http://swapi.dev/api/films/5/"
+    ],
+    "created": "2014-12-10T15:36:25.724000Z",
+    "edited": "2014-12-20T21:30:21.661000Z",
+    "url": "http://swapi.dev/api/vehicles/4/"
+}
+```
+
+
+### Obtener todos los vehículos registrados en el inventario
+###### Ruta: /api/vehiculos/inventario
+###### Method: GET
+<p>Devuelve un array con las unidades y otros datos básicos de los vehículos registrados en el inventario.</p>
+Return:
+
+```
+[
+    {
+        "id": 1,
+        "id_swapi": 4,
+        "nombre": "Sand Crawler",
+        "modelo": "Digger Crawler",
+        "fabricante": "Corellia Mining Corporation",
+        "unidades": 250,
+        "created_at": "2021-03-06 21:15:16",
+        "updated_at": null
+    },
+    ...
+]
+```
+
+
+### Agregar vehhículo al inventario
+###### Ruta: /api/vehiculos/inventario/new
+###### Method: POST
+<p>Crea el vehículo en el inventario y devuelve un objeto con los datos básicos del vehículo ingresado</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|opcional
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 20,
+    "nombre": "Storm IV Twin-Pod cloud car",
+    "modelo": "Storm IV Twin-Pod",
+    "fabricante": "Bespin Motors",
+    "unidades": 100
+}
+```
+
+Return ERROR (Ejemplo):
+
+```
+{
+    "error": "Vehículo existente",
+    "errorMessage": "El vehículo ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.",
+    "params": {
+        "id": 4,
+        "unidades": 100
+    }
+}
+```
+
+
+### Incrementar en X unidades el total de un vehículo específico
+###### Ruta: /api/vehiculos/inventario/increment
+###### Method: PATCH
+<p>Suma X unidades en el total del vehículo registrado y devuelve un objeto con los datos básicos de ese vehículo y la cantidad sumada</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|requerido
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 20,
+    "nombre": "Storm IV Twin-Pod cloud car",
+    "modelo": "Storm IV Twin-Pod",
+    "fabricante": "Bespin Motors",
+    "unidades": 200,
+    "increment": 100
+}
+```
+
+
+### Disminuir en X unidades el numero de un vehículo específico
+###### Ruta: /api/vehiculos/inventario/decrement
+###### Method: PATCH
+<p>Resta X unidades en el total del vehículo registrado y devuelve un objeto con los datos básicos de ese vehículo y la cantidad restada</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|requerido
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 20,
+    "nombre": "Storm IV Twin-Pod cloud car",
+    "modelo": "Storm IV Twin-Pod",
+    "fabricante": "Bespin Motors",
+    "unidades": 150,
+    "decrement": 50
+}
+```
+
+
+### Establecer el total de unidades de un vehículo específico
+###### Ruta: /api/vehiculo/inventario/modify
+###### Method: PATCH
+<p>Modifica el total de unidades del vehículo registrado y devuelve un objeto con los datos básicos de ese vehículo y la cantidad anterior</p>
+Request:
+
+```
+{
+    "id_swapi": entero|requerido,
+    "unidades": entero|requerido
+}
+```
+
+Return OK (Ejemplo):
+
+```
+{
+    "id_swapi": 20,
+    "nombre": "Storm IV Twin-Pod cloud car",
+    "modelo": "Storm IV Twin-Pod",
+    "fabricante": "Bespin Motors",
+    "unidades": 100,
+    "cantidadAnterior": 150
+}
+```
+
+
+### Buscar vehículos en el inventario
+###### Ruta: /api/vehiculos/inventario/{busqueda}
+###### Method: GET
+<p>Busca el vehículo en el inventario por los campos "nombre", "modelo", "fabricante" y devuelve un array con los vehículos que coincidan.</p>
+
+Return OK (Ejemplo):
+
+```
+[
+    {
+        "id_swapi": 4,
+        "nombre": "Sand Crawler",
+        "modelo": "Digger Crawler",
+        "fabricante": "Corellia Mining Corporation",
+        "unidades": 250
+    },
+    ...
+]
+```
+
+Return ERROR (Ejemplo):
+
+```
+{
+    "error": "Sin resultados",
+    "errorMessage": "No se encontraron vehículos para esa búsqueda.",
+    "params": {
+        "busqueda": "xxx"
+    }
+}
+```
