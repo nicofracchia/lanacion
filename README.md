@@ -67,14 +67,14 @@
 </summary>
 
 <ul>
-<li><a href="http://algo.com"> Obtener todos los vehículos de SWAPI</a></li>
-<li><a href="http://algo.com"> Obtener detalle de un vehículo en SWAPI</a></li>
-<li><a href="http://algo.com"> Obtener todos los vehículos registradas en el inventario</a></li>
-<li><a href="http://algo.com"> Agregar vehículos al inventario</a></li>
-<li><a href="http://algo.com"> Incrementar en X unidades el total de un vehículos específico</a></li>
-<li><a href="http://algo.com"> Disminuir en X unidades el total de un vehículos específico</a></li>
-<li><a href="http://algo.com"> Establecer el total de unidades de un vehículos específico</a></li>
-<li><a href="http://algo.com"> Buscar vehículos en el inventario</a></li>
+<li><a href="#obtener-todos-los-vehículos-de-swapi"> Obtener todos los vehículos de SWAPI</a></li>
+<li><a href="#obtener-detalle-de-un-vehículo-en-swapi"> Obtener detalle de un vehículo en SWAPI</a></li>
+<li><a href="#obtener-todos-los-vehículos-registrados-en-el-inventario"> Obtener todos los vehículos registrados en el inventario</a></li>
+<li><a href="#agregar-vehhículo-al-inventario"> Agregar vehículo al inventario</a></li>
+<li><a href="#incrementar-en-x-unidades-el-total-de-un-vehículo-específico"> Incrementar en X unidades el total de un vehículo específico</a></li>
+<li><a href="#disminuir-en-x-unidades-el-numero-de-un-vehículo-específico"> Disminuir en X unidades el numero de un vehículo específico</a></li>
+<li><a href="#establecer-el-total-de-unidades-de-un-vehículo-específico"> Establecer el total de unidades de un vehículo específico</a></li>
+<li><a href="#buscar-vehículos-en-el-inventario"> Buscar vehículos en el inventario</a></li>
 </ul>
     
 </details>
@@ -392,7 +392,7 @@ Return:
 ###### Ruta: /api/vehículos/{id}
 ###### Method: GET
 <p>Devuelve un objeto con el detalle completo del vehículo SWAPI.</p>
-Return (Ejemplo: /api/vehiculos/12):
+Return (Ejemplo: /api/vehiculos/4):
 
 ```
 {
@@ -442,7 +442,7 @@ Return:
 ```
 
 
-### Agregar vehhículo al inventario
+### Agregar vehículo al inventario
 ###### Ruta: /api/vehiculos/inventario/new
 ###### Method: POST
 <p>Crea el vehículo en el inventario y devuelve un objeto con los datos básicos del vehículo ingresado</p>
