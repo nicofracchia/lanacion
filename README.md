@@ -4,6 +4,24 @@
 
 <details>
 <summary>
+    <strong> Instalación </strong>
+</summary>
+
+<ul>
+<li><a href="#clonar-repositorio"> Clonar repositorio</a></li>
+<li><a href="#ingresar-al-proyecto"> Ingresar al proyecto</a></li>
+<li><a href="#instalar-dependencias-de-composer"> Instalar dependencias de Composer</a></li>
+<li><a href="#crear-las-bases-de-datos-lanacion-y-lanacion_testing"> Crear las bases de datos: "lanacion" y "lanacion_testing"</a></li>
+<li><a href="#crear-archivo-env"> Crear archivo .env</a></li>
+<li><a href="#configurar-los-datos-de-conexión-en-env"> Configurar los datos de conexión en .env</a></li>
+<li><a href="#ejecutar-migraciones-para-la-base-de-datos"> Ejecutar migraciones para la base de datos</a></li>
+<li><a href="#modificar-el-archivo-phpunitxml-para-la-base-de-datos-de-testing"> Modificar el archivo phpunit.xml para la base de datos de testing</a></li>
+</ul>
+    
+</details>
+
+<details>
+<summary>
     <strong> Naves </strong>
 </summary>
 
@@ -65,7 +83,7 @@
     
 </details>
 
-## INSTALACIÓN
+## Instalación
 
 ##### Clonar repositorio
     git clone https://github.com/nicofracchia/lanacion.git
