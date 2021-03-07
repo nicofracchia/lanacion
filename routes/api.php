@@ -16,6 +16,8 @@ use App\Http\Controllers\VehiculosController;
 |
 */
 
+// NAVES
+
 Route::get('/naves', [NavesController::class, 'index']);
 
 Route::get('/naves/inventario', [NavesController::class, 'getInventario']);
@@ -31,3 +33,21 @@ Route::patch('/naves/inventario/modify', [NavesController::class, 'modify']);
 Route::get('/naves/{id}', [NavesController::class, 'getDetallesById'])->where(['id' => '[0-9]+']);
 
 Route::get('/naves/inventario/{busqueda}', [NavesController::class, 'findByKeyword']);
+
+// VEHICULOS
+
+Route::get('/vehiculos', [VehiculosController::class, 'index']);
+
+Route::get('/vehiculos/inventario', [VehiculosController::class, 'getInventario']);
+
+Route::post('/vehiculos/inventario/new', [VehiculosController::class, 'new']);
+
+Route::patch('/vehiculos/inventario/increment', [VehiculosController::class, 'increment']);
+
+Route::patch('/vehiculos/inventario/decrement', [VehiculosController::class, 'decrement']);
+
+Route::patch('/vehiculos/inventario/modify', [VehiculosController::class, 'modify']);
+
+Route::get('/vehiculos/{id}', [VehiculosController::class, 'getDetallesById'])->where(['id' => '[0-9]+']);
+
+Route::get('/vehiculos/inventario/{busqueda}', [VehiculosController::class, 'findByKeyword']);

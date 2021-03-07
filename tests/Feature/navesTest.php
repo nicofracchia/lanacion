@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\Naves;
 
-class navesTest extends TestCase
+class NavesTest extends TestCase
 {
     use RefreshDatabase;
 
