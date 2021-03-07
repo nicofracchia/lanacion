@@ -70,7 +70,7 @@
 <li><a href="#obtener-todos-los-vehículos-de-swapi"> Obtener todos los vehículos de SWAPI</a></li>
 <li><a href="#obtener-detalle-de-un-vehículo-en-swapi"> Obtener detalle de un vehículo en SWAPI</a></li>
 <li><a href="#obtener-todos-los-vehículos-registrados-en-el-inventario"> Obtener todos los vehículos registrados en el inventario</a></li>
-<li><a href="#agregar-vehhículo-al-inventario"> Agregar vehículo al inventario</a></li>
+<li><a href="#agregar-vehículo-al-inventario"> Agregar vehículo al inventario</a></li>
 <li><a href="#incrementar-en-x-unidades-el-total-de-un-vehículo-específico"> Incrementar en X unidades el total de un vehículo específico</a></li>
 <li><a href="#disminuir-en-x-unidades-el-numero-de-un-vehículo-específico"> Disminuir en X unidades el numero de un vehículo específico</a></li>
 <li><a href="#establecer-el-total-de-unidades-de-un-vehículo-específico"> Establecer el total de unidades de un vehículo específico</a></li>
