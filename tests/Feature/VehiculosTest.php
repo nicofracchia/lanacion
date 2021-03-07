@@ -33,8 +33,6 @@ class VehiculosTest extends TestCase
         $this->get($ruta)->assertOk();
     }
 
-
-
     // TEST VEHICULOS BY ID SWAPI
     public function test_get_vehiculos_by_id_SWAPI(){
         $this->withoutExceptionHandling();
@@ -180,6 +178,7 @@ class VehiculosTest extends TestCase
 
         $response->assertOk();
     }
+
     public function test_agregar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar(){
         $this->withoutExceptionHandling();
 
@@ -224,6 +223,7 @@ class VehiculosTest extends TestCase
 
         $response->assertOk();
     }
+
     public function test_restar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar(){
         $this->withoutExceptionHandling();
 
@@ -268,6 +268,7 @@ class VehiculosTest extends TestCase
 
         $response->assertOk();
     }
+
     public function test_modificar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar(){
         $this->withoutExceptionHandling();
 

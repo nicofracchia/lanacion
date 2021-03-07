@@ -615,170 +615,35 @@ Return ERROR (Ejemplo):
 
 ### test_status_ruta_listado_completo_de_naves_desde_SWAPI
 ###### Comando: vendor\bin\phpunit --filter test_status_ruta_listado_completo_de_naves_desde_SWAPI
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_status_ruta_detalle_completo_de_naves_desde_SWAPI
 ###### Comando: vendor\bin\phpunit --filter test_status_ruta_detalle_completo_de_naves_desde_SWAPI
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_status_ruta_listado_completo_de_naves_en_el_inventario
 ###### Comando: vendor\bin\phpunit --filter test_status_ruta_listado_completo_de_naves_en_el_inventario
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_status_ruta_listado_completo_de_naves_en_el_inventario_busqueda
 ###### Comando: vendor\bin\phpunit --filter test_status_ruta_listado_completo_de_naves_en_el_inventario_busqueda
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_get_naves_by_id_SWAPI
 ###### Comando: vendor\bin\phpunit --filter test_get_naves_by_id_SWAPI
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_get_naves_by_id_SWAPI__error_id_nave_inexistente
 ###### Comando: vendor\bin\phpunit --filter test_get_naves_by_id_SWAPI__error_id_nave_inexistente
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_buscar_naves_en_inventario_por_nombre_modelo_fabricante
 ###### Comando: vendor\bin\phpunit --filter test_buscar_naves_en_inventario_por_nombre_modelo_fabricante
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_buscar_naves_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados
 ###### Comando: vendor\bin\phpunit --filter test_buscar_naves_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_agregar_nueva_nave_al_inventario
 ###### Comando: vendor\bin\phpunit --filter test_agregar_nueva_nave_al_inventario
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_agregar_nueva_nave_al_inventario__error_no_existe_en_SWAPI
 ###### Comando: vendor\bin\phpunit --filter test_agregar_nueva_nave_al_inventario__error_no_existe_en_SWAPI
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_agregar_nueva_nave_al_inventario__error_ya_existe_en_el_inventario
 ###### Comando: vendor\bin\phpunit --filter test_agregar_nueva_nave_al_inventario__error_ya_existe_en_el_inventario
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_agregar_unidades_a_nave_en_inventario
 ###### Comando: vendor\bin\phpunit --filter test_agregar_unidades_a_nave_en_inventario
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_agregar_unidades_a_nave_en_inventario__error_nave_sin_registrar
 ###### Comando: vendor\bin\phpunit --filter test_agregar_unidades_a_nave_en_inventario__error_nave_sin_registrar
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_restar_unidades_a_nave_en_inventario
 ###### Comando: vendor\bin\phpunit --filter test_restar_unidades_a_nave_en_inventario
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_restar_unidades_a_nave_en_inventario__error_nave_sin_registrar
 ###### Comando: vendor\bin\phpunit --filter test_restar_unidades_a_nave_en_inventario__error_nave_sin_registrar
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_modificar_unidades_a_nave_en_inventario
 ###### Comando: vendor\bin\phpunit --filter test_modificar_unidades_a_nave_en_inventario
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>
-
 ### test_modificar_unidades_a_nave_en_inventario__error_nave_sin_registrar
 ###### Comando: vendor\bin\phpunit --filter test_modificar_unidades_a_nave_en_inventario__error_nave_sin_registrar
-<p>
-Validaciones:
-<ul>
-	<li>VALIDACION</li>
-	<li>validacion</li>
-</ul>
-</p>

@@ -33,8 +33,6 @@ class NavesTest extends TestCase
         $this->get($ruta)->assertOk();
     }
 
-
-
     // TEST NAVES BY ID SWAPI
     public function test_get_naves_by_id_SWAPI(){
         $this->withoutExceptionHandling();
@@ -173,6 +171,7 @@ class NavesTest extends TestCase
 
         $response->assertOk();
     }
+
     public function test_agregar_unidades_a_nave_en_inventario__error_nave_sin_registrar(){
         $this->withoutExceptionHandling();
 
@@ -217,6 +216,7 @@ class NavesTest extends TestCase
 
         $response->assertOk();
     }
+
     public function test_restar_unidades_a_nave_en_inventario__error_nave_sin_registrar(){
         $this->withoutExceptionHandling();
 
@@ -261,6 +261,7 @@ class NavesTest extends TestCase
 
         $response->assertOk();
     }
+
     public function test_modificar_unidades_a_nave_en_inventario__error_nave_sin_registrar(){
         $this->withoutExceptionHandling();
 
