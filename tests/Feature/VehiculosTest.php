@@ -78,13 +78,20 @@ class VehiculosTest extends TestCase
 
         $this->assertCount(3, Vehiculos::all());
 
-        $response = $this->get('/api/vehiculos/inventario/star');
+        $response1 = $this->get('/api/vehiculos/inventario/sand');
+        $response1->assertJsonStructure([['id_swapi', 'nombre','modelo', 'fabricante', 'unidades']]);
+        $response1->assertJsonCount(1);
+        $response1->assertOk();
 
-        $response->dump();
+        $response2 = $this->get('/api/vehiculos/inventario/skyhopper');
+        $response2->assertJsonStructure([['id_swapi', 'nombre','modelo', 'fabricante', 'unidades']]);
+        $response2->assertJsonCount(1);
+        $response2->assertOk();
 
-        $response->assertJsonCount(3);
-
-        $response->assertOk();
+        $response3 = $this->get('/api/vehiculos/inventario/SoroSuub');
+        $response3->assertJsonStructure([['id_swapi', 'nombre','modelo', 'fabricante', 'unidades']]);
+        $response3->assertJsonCount(1);
+        $response3->assertOk();
     }
 
     public function test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados(){
@@ -143,7 +150,7 @@ class VehiculosTest extends TestCase
 
         $response->assertJsonStructure(["error", "errorMessage", "params"]);
 
-        $response->assertJson(['error' => 'Vehiculo existente']);
+        $response->assertJson(['error' => 'Vehículo existente']);
 
         $this->assertCount(1, Vehiculos::all());
     }
@@ -274,7 +281,7 @@ class VehiculosTest extends TestCase
         $response->assertJsonStructure(["error", "errorMessage", "params"]);
 
         $response->assertJson([
-            "error" => "Vehiculo inexistente"
+            "error" => "Vehículo inexistente"
         ]);
 
         $response->assertOk();

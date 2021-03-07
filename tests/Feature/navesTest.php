@@ -80,9 +80,9 @@ class NavesTest extends TestCase
 
         $response = $this->get('/api/naves/inventario/star');
 
-        $response->dump();
-
         $response->assertJsonCount(3);
+
+        $response->assertJsonStructure([['id_swapi', 'nombre','modelo', 'fabricante', 'unidades']]);
 
         $response->assertOk();
     }
