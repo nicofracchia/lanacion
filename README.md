@@ -83,6 +83,33 @@
     
 </details>
 
+<details>
+<summary>
+    <strong> Testing vehiculos </strong>
+</summary>
+
+<ul>
+<li><a href="#test_status_ruta_listado_completo_de_vehiculos_desde_SWAPI">test_status_ruta_listado_completo_de_vehiculos_desde_SWAPI</a></li>
+<li><a href="#test_status_ruta_detalle_completo_de_vehiculos_desde_SWAPI">test_status_ruta_detalle_completo_de_vehiculos_desde_SWAPI</a></li>
+<li><a href="#test_status_ruta_listado_completo_de_vehiculos_en_el_inventario">test_status_ruta_listado_completo_de_vehiculos_en_el_inventario</a></li>
+<li><a href="#test_status_ruta_listado_completo_de_vehiculos_en_el_inventario_busqueda">test_status_ruta_listado_completo_de_vehiculos_en_el_inventario_busqueda</a></li>
+<li><a href="#test_get_vehiculos_by_id_SWAPI">test_get_vehiculos_by_id_SWAPI</a></li>
+<li><a href="#test_get_vehiculos_by_id_SWAPI__error_id_vehiculo_inexistente">test_get_vehiculos_by_id_SWAPI__error_id_vehiculo_inexistente</a></li>
+<li><a href="#test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante">test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante</a></li>
+<li><a href="#test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados">test_buscar_vehiculos_en_inventario_por_nombre_modelo_fabricante__error_sin_resultados</a></li>
+<li><a href="#test_agregar_nuevo_vehiculo_al_inventario">test_agregar_nuevo_vehiculo_al_inventario</a></li>
+<li><a href="#test_agregar_nuevo_vehiculo_al_inventario__error_no_existe_en_SWAPI">test_agregar_nuevo_vehiculo_al_inventario__error_no_existe_en_SWAPI</a></li>
+<li><a href="#test_agregar_nuevo_vehiculo_al_inventario__error_ya_existe_en_el_inventario">test_agregar_nuevo_vehiculo_al_inventario__error_ya_existe_en_el_inventario</a></li>
+<li><a href="#test_agregar_unidades_a_vehiculo_en_inventario">test_agregar_unidades_a_vehiculo_en_inventario</a></li>
+<li><a href="#test_agregar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar">test_agregar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar</a></li>
+<li><a href="#test_restar_unidades_a_vehiculo_en_inventario">test_restar_unidades_a_vehiculo_en_inventario</a></li>
+<li><a href="#test_restar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar">test_restar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar</a></li>
+<li><a href="#test_modificar_unidades_a_vehiculo_en_inventario">test_modificar_unidades_a_vehiculo_en_inventario</a></li>
+<li><a href="#test_modificar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar">test_modificar_unidades_a_vehiculo_en_inventario__error_vehiculo_sin_registrar</a></li>
+</ul>
+    
+</details>
+
 ## Instalación
 
 ##### Clonar repositorio
