@@ -1,6 +1,6 @@
-# DOCUMENTACIÓN
+# DOCUMENTATION
 
-## Índice
+## Index
 
 <details>
 <summary>
