@@ -45,7 +45,7 @@
 
 <ul>
 <li><a href="#obtener-todos-los-vehículos-de-swapi"> Get all vehicles from SWAPI</a></li>
-<li><a href="#obtener-detalle-de-un-vehículo-en-swapi"> Get details from one vehicle from SWAPI</a></li>
+<li><a href="#obtener-detalle-de-un-vehículo-en-swapi"> Get details for one vehicle from SWAPI</a></li>
 <li><a href="#obtener-todos-los-vehículos-registrados-en-el-inventario"> Get all registered vehicles at the inventory</a></li>
 <li><a href="#agregar-vehículo-al-inventario"> Add vehicle to the inventory</a></li>
 <li><a href="#incrementar-en-x-unidades-el-total-de-un-vehículo-específico"> Increase the total of a specific vehicle by X units</a></li>
@@ -419,38 +419,38 @@ Return ERROR (Example):
 }
 ```
 
-## Vehículos
+## Vehicles
 
-### Obtener todos los vehículos de SWAPI
-###### Ruta: /api/vehiculos/ 
+### Get all vehicles from SWAPI
+###### Route: /api/vehiculos/ 
 ###### Method: GET
-<p>Devuelve un array con los datos básicos de todos los vehículos en SWAPI.</p>
+<p>Returns an array with the basic data of all the vehicles in SWAPI.</p>
 Return:
 
 ```
 [
     {
         "id": "4",
-        "nombre": "Sand Crawler",
-        "modelo": "Digger Crawler",
-        "fabricante": "Corellia Mining Corporation"
+        "name": "Sand Crawler",
+        "model": "Digger Crawler",
+        "manufacturer": "Corellia Mining Corporation"
     },
     {
         "id": "6",
-        "nombre": "T-16 skyhopper",
-        "modelo": "T-16 skyhopper",
-        "fabricante": "Incom Corporation"
+        "name": "T-16 skyhopper",
+        "model": "T-16 skyhopper",
+        "manufacturer": "Incom Corporation"
     },
     ...
 ]
 ```
 
 
-### Obtener detalle de un vehículo en SWAPI
-###### Ruta: /api/vehículos/{id}
+### Get details for one vehicle from SWAPI
+###### route: /api/vehículos/{id}
 ###### Method: GET
-<p>Devuelve un objeto con el detalle completo del vehículo SWAPI.</p>
-Return (Ejemplo: /api/vehiculos/4):
+<p>Returns an object with the complete SWAPI vehicle detail.</p>
+Return (Example: /api/vehiculos/4):
 
 ```
 {
@@ -477,10 +477,10 @@ Return (Ejemplo: /api/vehiculos/4):
 ```
 
 
-### Obtener todos los vehículos registrados en el inventario
-###### Ruta: /api/vehiculos/inventario
+### Get all registered vehicles at the inventory
+###### Route: /api/vehiculos/inventario
 ###### Method: GET
-<p>Devuelve un array con las unidades y otros datos básicos de los vehículos registrados en el inventario.</p>
+<p>Returns an array with the units and other basic data of the vehicles registered in the inventory.</p>
 Return:
 
 ```
@@ -488,10 +488,10 @@ Return:
     {
         "id": 1,
         "id_swapi": 4,
-        "nombre": "Sand Crawler",
-        "modelo": "Digger Crawler",
-        "fabricante": "Corellia Mining Corporation",
-        "unidades": 250,
+        "name": "Sand Crawler",
+        "model": "Digger Crawler",
+        "manufacturer": "Corellia Mining Corporation",
+        "units": 250,
         "created_at": "2021-03-06 21:15:16",
         "updated_at": null
     },
@@ -500,55 +500,55 @@ Return:
 ```
 
 
-### Agregar vehículo al inventario
-###### Ruta: /api/vehiculos/inventario/new
+### Add vehicle to the inventory
+###### Route: /api/vehiculos/inventario/new
 ###### Method: POST
-<p>Crea el vehículo en el inventario y devuelve un objeto con los datos básicos del vehículo ingresado</p>
+<p>Creates the vehicle in the inventory and returns an object with the basic data of the entered vehicle.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|opcional
+    "id_swapi": integer|required,
+    "unidades": integer|optional
 }
 ```
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 {
     "id_swapi": 20,
-    "nombre": "Storm IV Twin-Pod cloud car",
-    "modelo": "Storm IV Twin-Pod",
-    "fabricante": "Bespin Motors",
-    "unidades": 100
+    "name": "Storm IV Twin-Pod cloud car",
+    "model": "Storm IV Twin-Pod",
+    "manufacturer": "Bespin Motors",
+    "units": 100
 }
 ```
 
-Return ERROR (Ejemplo):
+Return ERROR (Example):
 
 ```
 {
-    "error": "Vehículo existente",
-    "errorMessage": "El vehículo ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.",
+    "error": "Existing vehicle",
+    "errorMessage": "The vehicle is already in the inventory, you can add, subtract or modify the units.",
     "params": {
         "id": 4,
-        "unidades": 100
+        "units": 100
     }
 }
 ```
 
 
-### Incrementar en X unidades el total de un vehículo específico
-###### Ruta: /api/vehiculos/inventario/increment
+### Increase the total of a specific vehicle by X units
+###### Route: /api/vehiculos/inventario/increment
 ###### Method: PATCH
-<p>Suma X unidades en el total del vehículo registrado y devuelve un objeto con los datos básicos de ese vehículo y la cantidad sumada</p>
+<p>It adds X units in the total amount of the registered vehicle and returns an object with the basic data of that vehicle and the summed amount.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|requerido
+    "id_swapi": integer|required,
+    "unidades": integer|required
 }
 ```
 
@@ -557,52 +557,52 @@ Return OK (Ejemplo):
 ```
 {
     "id_swapi": 20,
-    "nombre": "Storm IV Twin-Pod cloud car",
-    "modelo": "Storm IV Twin-Pod",
-    "fabricante": "Bespin Motors",
-    "unidades": 200,
+    "name": "Storm IV Twin-Pod cloud car",
+    "model": "Storm IV Twin-Pod",
+    "manufacturer": "Bespin Motors",
+    "units": 200,
     "increment": 100
 }
 ```
 
 
-### Disminuir en X unidades el numero de un vehículo específico
-###### Ruta: /api/vehiculos/inventario/decrement
+### Decrease the total of a specific vehicle by X units
+###### Route: /api/vehiculos/inventario/decrement
 ###### Method: PATCH
-<p>Resta X unidades en el total del vehículo registrado y devuelve un objeto con los datos básicos de ese vehículo y la cantidad restada</p>
+<p>Subtract X units from the total amount of the registered vehicle and returns an object with the basic data of that vehicle and the subtracted quantity</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|requerido
+    "id_swapi": integer|required,
+    "unidades": integer|required
 }
 ```
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 {
     "id_swapi": 20,
-    "nombre": "Storm IV Twin-Pod cloud car",
-    "modelo": "Storm IV Twin-Pod",
-    "fabricante": "Bespin Motors",
-    "unidades": 150,
+    "name": "Storm IV Twin-Pod cloud car",
+    "model": "Storm IV Twin-Pod",
+    "manufacturer": "Bespin Motors",
+    "units": 150,
     "decrement": 50
 }
 ```
 
 
-### Establecer el total de unidades de un vehículo específico
-###### Ruta: /api/vehiculo/inventario/modify
+### Set the total units of a specific vehicle
+###### Route: /api/vehiculo/inventario/modify
 ###### Method: PATCH
-<p>Modifica el total de unidades del vehículo registrado y devuelve un objeto con los datos básicos de ese vehículo y la cantidad anterior</p>
+<p>Edits the total number of units of the registered vehicle and returns an object with the basic data of that vehicle and the previous quantity.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|requerido
+    "id_swapi": integer|required,
+    "unidades": integer|required
 }
 ```
 
@@ -611,30 +611,30 @@ Return OK (Ejemplo):
 ```
 {
     "id_swapi": 20,
-    "nombre": "Storm IV Twin-Pod cloud car",
-    "modelo": "Storm IV Twin-Pod",
-    "fabricante": "Bespin Motors",
-    "unidades": 100,
-    "cantidadAnterior": 150
+    "name": "Storm IV Twin-Pod cloud car",
+    "model": "Storm IV Twin-Pod",
+    "manufacturer": "Bespin Motors",
+    "units": 100,
+    "previousAmount": 150
 }
 ```
 
 
-### Buscar vehículos en el inventario
-###### Ruta: /api/vehiculos/inventario/{busqueda}
+### Search vehicles in inventory
+###### Route: /api/vehiculos/inventario/{busqueda}
 ###### Method: GET
-<p>Busca el vehículo en el inventario por los campos "nombre", "modelo", "fabricante" y devuelve un array con los vehículos que coincidan.</p>
+<p>Searches for the vehicle in the inventory by the fields "name", "model", "manufacturer" and returns an array with the matching vehicles.</p>
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 [
     {
         "id_swapi": 4,
-        "nombre": "Sand Crawler",
-        "modelo": "Digger Crawler",
-        "fabricante": "Corellia Mining Corporation",
-        "unidades": 250
+        "name": "Sand Crawler",
+        "model": "Digger Crawler",
+        "manufacturer": "Corellia Mining Corporation",
+        "units": 250
     },
     ...
 ]
@@ -644,8 +644,8 @@ Return ERROR (Ejemplo):
 
 ```
 {
-    "error": "Sin resultados",
-    "errorMessage": "No se encontraron vehículos para esa búsqueda.",
+    "error": "No results",
+    "errorMessage": "No vehicles were found for this search.",
     "params": {
         "busqueda": "xxx"
     }
