@@ -4,7 +4,7 @@
 
 <details>
 <summary>
-    <strong> Instalación </strong>
+    <strong> Installation </strong>
 </summary>
 
 <ul>
