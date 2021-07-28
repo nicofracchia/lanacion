@@ -8,57 +8,57 @@
 </summary>
 
 <ul>
-<li><a href="#clonar-repositorio"> Clonar repositorio</a></li>
-<li><a href="#ingresar-al-proyecto"> Ingresar al proyecto</a></li>
-<li><a href="#instalar-dependencias-de-composer"> Instalar dependencias de Composer</a></li>
-<li><a href="#crear-las-bases-de-datos-lanacion-y-lanacion_testing"> Crear las bases de datos: "lanacion" y "lanacion_testing"</a></li>
-<li><a href="#crear-archivo-env"> Crear archivo .env</a></li>
-<li><a href="#configurar-los-datos-de-conexión-en-env"> Configurar los datos de conexión en .env</a></li>
-<li><a href="#ejecutar-migraciones-para-la-base-de-datos"> Ejecutar migraciones para la base de datos</a></li>
-<li><a href="#modificar-el-archivo-phpunitxml-para-la-base-de-datos-de-testing"> Modificar el archivo phpunit.xml para la base de datos de testing</a></li>
+<li><a href="#clonar-repositorio"> Clone repository</a></li>
+<li><a href="#ingresar-al-proyecto"> Get into the project</a></li>
+<li><a href="#instalar-dependencias-de-composer"> Install Composer dependencies</a></li>
+<li><a href="#crear-las-bases-de-datos-lanacion-y-lanacion_testing"> Create the databases: "lanacion" and "lanacion_testing"</a></li>
+<li><a href="#crear-archivo-env"> Create file .env</a></li>
+<li><a href="#configurar-los-datos-de-conexión-en-env"> Configure connection data on the .env file</a></li>
+<li><a href="#ejecutar-migraciones-para-la-base-de-datos"> Execute database migrations</a></li>
+<li><a href="#modificar-el-archivo-phpunitxml-para-la-base-de-datos-de-testing"> Modify the file phpunit.xml for the testing database</a></li>
 </ul>
     
 </details>
 
 <details>
 <summary>
-    <strong> Naves </strong>
+    <strong> Ships </strong>
 </summary>
 
 <ul>
-<li><a href="#obtener-todas-las-naves-de-swapi"> Obtener todas las naves de SWAPI</a></li>
-<li><a href="#obtener-detalle-de-una-nave-en-swapi"> Obtener detalle de una nave en SWAPI</a></li>
-<li><a href="#obtener-todas-las-naves-registradas-en-el-inventario"> Obtener todas las naves registradas en el inventario</a></li>
-<li><a href="#agregar-nave-al-inventario"> Agregar nave al inventario</a></li>
-<li><a href="#incrementar-en-x-unidades-el-total-de-una-nave-específica"> Incrementar en X unidades el total de una nave específica</a></li>
-<li><a href="#disminuir-en-x-unidades-el-numero-de-una-nave-específica"> Disminuir en X unidades el total de una nave específica</a></li>
-<li><a href="#establecer-el-total-de-unidades-de-una-nave-específica"> Establecer el total de unidades de una nave específica</a></li>
-<li><a href="#buscar-naves-en-el-inventario"> Buscar naves en el inventario</a></li>
+<li><a href="#obtener-todas-las-naves-de-swapi"> Get all ships from SWAPI</a></li>
+<li><a href="#obtener-detalle-de-una-nave-en-swapi"> Get details from one sihp from SWAPI</a></li>
+<li><a href="#obtener-todas-las-naves-registradas-en-el-inventario"> Get all registered ships at the inventory</a></li>
+<li><a href="#agregar-nave-al-inventario"> Add ship to the inventory</a></li>
+<li><a href="#incrementar-en-x-unidades-el-total-de-una-nave-específica"> Increase the total of a specific ship by X units </a></li>
+<li><a href="#disminuir-en-x-unidades-el-numero-de-una-nave-específica"> Decrease the total of a specific ship by X units</a></li>
+<li><a href="#establecer-el-total-de-unidades-de-una-nave-específica"> Set the total units of a specific ship</a></li>
+<li><a href="#buscar-naves-en-el-inventario"> Search ships in inventory</a></li>
 </ul>
     
 </details>
 
 <details>
 <summary>
-    <strong> Vehículos </strong>
+    <strong> Vehícles </strong>
 </summary>
 
 <ul>
-<li><a href="#obtener-todos-los-vehículos-de-swapi"> Obtener todos los vehículos de SWAPI</a></li>
-<li><a href="#obtener-detalle-de-un-vehículo-en-swapi"> Obtener detalle de un vehículo en SWAPI</a></li>
-<li><a href="#obtener-todos-los-vehículos-registrados-en-el-inventario"> Obtener todos los vehículos registrados en el inventario</a></li>
-<li><a href="#agregar-vehículo-al-inventario"> Agregar vehículo al inventario</a></li>
-<li><a href="#incrementar-en-x-unidades-el-total-de-un-vehículo-específico"> Incrementar en X unidades el total de un vehículo específico</a></li>
-<li><a href="#disminuir-en-x-unidades-el-numero-de-un-vehículo-específico"> Disminuir en X unidades el numero de un vehículo específico</a></li>
-<li><a href="#establecer-el-total-de-unidades-de-un-vehículo-específico"> Establecer el total de unidades de un vehículo específico</a></li>
-<li><a href="#buscar-vehículos-en-el-inventario"> Buscar vehículos en el inventario</a></li>
+<li><a href="#obtener-todos-los-vehículos-de-swapi"> Get all vehicles from SWAPI</a></li>
+<li><a href="#obtener-detalle-de-un-vehículo-en-swapi"> Get details from one vehicle from SWAPI</a></li>
+<li><a href="#obtener-todos-los-vehículos-registrados-en-el-inventario"> Get all registered vehicles at the inventory</a></li>
+<li><a href="#agregar-vehículo-al-inventario"> Add vehicle to the inventory</a></li>
+<li><a href="#incrementar-en-x-unidades-el-total-de-un-vehículo-específico"> Increase the total of a specific vehicle by X units</a></li>
+<li><a href="#disminuir-en-x-unidades-el-numero-de-un-vehículo-específico"> Decrease the total of a specific vehicle by X units</a></li>
+<li><a href="#establecer-el-total-de-unidades-de-un-vehículo-específico"> Set the total units of a specific vehicle</a></li>
+<li><a href="#buscar-vehículos-en-el-inventario"> Search vehicles in inventory</a></li>
 </ul>
     
 </details>
 
 <details>
 <summary>
-    <strong> Testing naves </strong>
+    <strong> Testing ships </strong>
 </summary>
 
 <ul>
