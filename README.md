@@ -8,14 +8,14 @@
 </summary>
 
 <ul>
-<li><a href="#clonar-repositorio"> Clone repository</a></li>
+<li><a href="#clonar-repositorio"> Clone the repository</a></li>
 <li><a href="#ingresar-al-proyecto"> Get into the project</a></li>
 <li><a href="#instalar-dependencias-de-composer"> Install Composer dependencies</a></li>
 <li><a href="#crear-las-bases-de-datos-lanacion-y-lanacion_testing"> Create the databases: "lanacion" and "lanacion_testing"</a></li>
-<li><a href="#crear-archivo-env"> Create file .env</a></li>
+<li><a href="#crear-archivo-env"> Create the file .env</a></li>
 <li><a href="#configurar-los-datos-de-conexión-en-env"> Configure connection data on the .env file</a></li>
 <li><a href="#ejecutar-migraciones-para-la-base-de-datos"> Execute database migrations</a></li>
-<li><a href="#modificar-el-archivo-phpunitxml-para-la-base-de-datos-de-testing"> Modify the file phpunit.xml for the testing database</a></li>
+<li><a href="#modificar-el-archivo-phpunitxml-para-la-base-de-datos-de-testing"> Edit the file phpunit.xml for the testing database</a></li>
 </ul>
     
 </details>
@@ -27,7 +27,7 @@
 
 <ul>
 <li><a href="#obtener-todas-las-naves-de-swapi"> Get all ships from SWAPI</a></li>
-<li><a href="#obtener-detalle-de-una-nave-en-swapi"> Get details from one sihp from SWAPI</a></li>
+<li><a href="#obtener-detalle-de-una-nave-en-swapi"> Get details for one sihp from SWAPI</a></li>
 <li><a href="#obtener-todas-las-naves-registradas-en-el-inventario"> Get all registered ships at the inventory</a></li>
 <li><a href="#agregar-nave-al-inventario"> Add ship to the inventory</a></li>
 <li><a href="#incrementar-en-x-unidades-el-total-de-una-nave-específica"> Increase the total of a specific ship by X units </a></li>
@@ -85,7 +85,7 @@
 
 <details>
 <summary>
-    <strong> Testing vehiculos </strong>
+    <strong> Testing vehicles </strong>
 </summary>
 
 <ul>
@@ -110,31 +110,45 @@
     
 </details>
 
-## Instalación
+## Installation
 
-##### Clonar repositorio
+##### Clone the repository
     git clone https://github.com/nicofracchia/lanacion.git
     
-##### Ingresar al proyecto
+##### Enter the project
     cd lanacion
     
-##### Instalar dependencias de Composer
+##### Install Composer dependencies
     composer install
     
-##### Crear las bases de datos: "lanacion" y "lanacion_testing"
+##### Create the databases: "lanacion" and "lanacion_testing"
     Character Set: utf8mb4 -- UTF-8 Unicode
     Collation: utf8mb4_general_ci
     
-##### Crear archivo .env
+##### Create the file .env
     rename .env.example .env
     
-##### Configurar los datos de conexión en .env
-    Agregar la variable DB_TEST_DATABASE=lanacion_testing
+##### Configure connection data on the .env file
+    Database connection data:
+    DB_CONNECTION=mysql
+    DB_HOST=XXXXX
+    DB_PORT=XXXXX
+    DB_DATABASE=lanacion
+    DB_USERNAME=XXXXX
+    DB_PASSWORD=XXXXX
     
-##### Ejecutar migraciones para la base de datos
+    Database connection data for unit testing:
+    DB_TEST_CONNECTION=mysql_testing
+    DB_TEST_HOST=XXXXX
+    DB_TEST_PORT=XXXXX
+    DB_TEST_TEST_DATABASE=lanacion_testing
+    DB_TEST_USERNAME=XXXXX
+    DB_TEST_PASSWORD=XXXXX
+    
+##### Execute database migrations
     php artisan migrate
     
-##### Modificar el archivo phpunit.xml para la base de datos de testing
+##### Edit the file phpunit.xml for the testing database
     <?xml version="1.0" encoding="UTF-8"?>
     <phpunit ... >
         <testsuites>
@@ -150,38 +164,38 @@
         </php>
     </phpunit>
 
-## Naves
+## Ships
 
-### Obtener todas las naves de SWAPI
-###### Ruta: /api/naves/ 
+### Get all ships from SWAPI
+###### Route: /api/naves/ 
 ###### Method: GET
-<p>Devuelve un array con los datos basicos de todas las naves en SWAPI.</p>
+<p>Returns an array with the basic data of all ships in SWAPI.</p>
 Return:
 
 ```
 [
     {
         "id": "2",
-        "nombre": "CR90 corvette",
-        "modelo": "CR90 corvette",
-        "fabricante": "Corellian Engineering Corporation"
+        "name": "CR90 corvette",
+        "model": "CR90 corvette",
+        "manufacturer": "Corellian Engineering Corporation"
     },
     {
         "id": "3",
-        "nombre": "Star Destroyer",
-        "modelo": "Imperial I-class Star Destroyer",
-        "fabricante": "Kuat Drive Yards"
+        "name": "Star Destroyer",
+        "model": "Imperial I-class Star Destroyer",
+        "manufacturer": "Kuat Drive Yards"
     },
     ...
 ]
 ```
 
 
-### Obtener detalle de una nave en SWAPI
-###### Ruta: /api/naves/{id}
+### Get details for one sihp from SWAPI
+###### Route: /api/naves/{id}
 ###### Method: GET
-<p>Devuelve un objeto con el detalle completo de la nave SWAPI.</p>
-Return (Ejemplo: /api/naves/12):
+<p>Returns an object with the complete detail of the SWAPI ship.</p>
+Return (example: /api/naves/12):
 
 ```
 {
@@ -216,10 +230,10 @@ Return (Ejemplo: /api/naves/12):
 ```
 
 
-### Obtener todas las naves registradas en el inventario
-###### Ruta: /api/naves/inventario
+### Get all registered ships at the inventory
+###### Route: /api/naves/inventario
 ###### Method: GET
-<p>Devuelve un array con las unidades y otros datos básicos de las naves registradas en el inventario.</p>
+<p>Returns an array with the units and other basic data of the ships registered in the inventory.</p>
 Return:
 
 ```
@@ -227,10 +241,10 @@ Return:
     {
         "id": 1,
         "id_swapi": 40,
-        "nombre": "Naboo Royal Starship",
-        "modelo": "J-type 327 Nubian royal starship",
-        "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
-        "unidades": 150,
+        "name": "Naboo Royal Starship",
+        "model": "J-type 327 Nubian royal starship",
+        "manufacturer": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+        "units": 150,
         "created_at": "2021-03-05 18:48:48",
         "updated_at": null
     },
@@ -239,166 +253,166 @@ Return:
 ```
 
 
-### Agregar nave al inventario
-###### Ruta: /api/naves/inventario/new
+### Add ship to the inventory
+###### Route: /api/naves/inventario/new
 ###### Method: POST
-<p>Crea la nave en el inventario y devuelve un objeto con los datos basicos de la nave ingresada</p>
+<p>Creates the ship in the inventory and return an object with the basic data of the entered ship.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|opcional
+    "id_swapi": integer|required,
+    "unidades": integer|optional
 }
 ```
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 {
     "id_swapi": 12,
-    "nombre": "X-wing",
-    "modelo": "T-65 X-wing",
-    "fabricante": "Incom Corporation",
-    "unidades": 150
+    "name": "X-wing",
+    "model": "T-65 X-wing",
+    "manufacturer": "Incom Corporation",
+    "units": 150
 }
 ```
 
-Return ERROR (Ejemplo):
+Return ERROR (Example):
 
 ```
 {
-    "error": "Nave existente",
-    "errorMessage": "La nave ya se encuentra en el inventario, puede sumar, restar o modificar las unidades.",
+    "error": "Existing ship",
+    "errorMessage": "The ship is already in the inventory, you can add, subtract or modify the units.",
     "params": {
         "id": 12,
-        "unidades": 150
+        "units": 150
     }
 }
 ```
 
 
-### Incrementar en X unidades el total de una nave específica
-###### Ruta: /api/naves/inventario/increment
+### Increase the total of a specific ship by X units
+###### Route: /api/naves/inventario/increment
 ###### Method: PATCH
-<p>Suma X unidades en el total de la nave registrada y devuelve uno bjeto con los datos básicos de esa nave y la cantidad sumada</p>
+<p>Add X units in the total amount of the registered ship and return one object with the basic data of that ship and the sum added.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|requerido
+    "id_swapi": integer|required,
+    "unidades": integer|required
 }
 ```
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 {
     "id_swapi": 40,
-    "nombre": "Naboo Royal Starship",
-    "modelo": "J-type 327 Nubian royal starship",
-    "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
-    "unidades": 200,
+    "name": "Naboo Royal Starship",
+    "model": "J-type 327 Nubian royal starship",
+    "manufacturer": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+    "units": 200,
     "increment": 50
 }
 ```
 
 
-### Disminuir en X unidades el numero de una nave específica
-###### Ruta: /api/naves/inventario/decrement
+### Decrease the total of a specific ship by X units
+###### route: /api/naves/inventario/decrement
 ###### Method: PATCH
-<p>Resta X unidades en el total de la nave registrada y devuelve uno bjeto con los datos básicos de esa nave y la cantidad restada</p>
+<p>Subtract X units from the total amount of the registered ship and return one object with the basic data of that ship and the amount subtracted.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|requerido
+    "id_swapi": integer|required,
+    "unidades": integer|required
 }
 ```
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 {
     "id_swapi": 40,
-    "nombre": "Naboo Royal Starship",
-    "modelo": "J-type 327 Nubian royal starship",
-    "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
-    "unidades": 190,
+    "name": "Naboo Royal Starship",
+    "model": "J-type 327 Nubian royal starship",
+    "manufacturer": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+    "units": 190,
     "decrement": 10
 }
 ```
 
 
-### Establecer el total de unidades de una nave específica
-###### Ruta: /api/naves/inventario/modify
+### Set the total units of a specific ship
+###### Route: /api/naves/inventario/modify
 ###### Method: PATCH
-<p>Modifica el total de unidades de la nave registrada y devuelve uno bjeto con los datos básicos de esa nave y la cantidad anterior</p>
+<p>Modifies the total amount of units of the registered ship and returns one object with the basic data of that ship and the previous quantity.</p>
 Request:
 
 ```
 {
-    "id_swapi": entero|requerido,
-    "unidades": entero|requerido
+    "id_swapi": integer|required,
+    "unidades": integer|required
 }
 ```
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 {
     "id_swapi": 40,
-    "nombre": "Naboo Royal Starship",
-    "modelo": "J-type 327 Nubian royal starship",
-    "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
-    "unidades": 250,
-    "cantidadAnterior": 190
+    "name": "Naboo Royal Starship",
+    "model": "J-type 327 Nubian royal starship",
+    "manufacturer": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+    "units": 250,
+    "previousAmount": 190
 }
 ```
 
 
-### Buscar naves en el inventario
-###### Ruta: /api/naves/inventario/{busqueda}
+### Search ships in inventory
+###### Route: /api/naves/inventario/{busqueda}
 ###### Method: GET
-<p>Busca la nave en el inventario por los campos "nombre", "modelo", "fabricante" y devuelve un array con las naves que coincidan.</p>
+<p>It searches for the ship in the inventory by the fields "name", "model", "manufacturer" and returns an array with the matching ships.</p>
 
-Return OK (Ejemplo):
+Return OK (Example):
 
 ```
 [
     {
         "id_swapi": 40,
-        "nombre": "Naboo Royal Starship",
-        "modelo": "J-type 327 Nubian royal starship",
-        "fabricante": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
-        "unidades": 250
+        "name": "Naboo Royal Starship",
+        "model": "J-type 327 Nubian royal starship",
+        "manufacturer": "Theed Palace Space Vessel Engineering Corps, Nubia Star Drives",
+        "units": 250
     },
     {
         "id_swapi": 9,
-        "nombre": "Death Star",
-        "modelo": "DS-1 Orbital Battle Station",
-        "fabricante": "Imperial Department of Military Research, Sienar Fleet Systems",
-        "unidades": 150
+        "name": "Death Star",
+        "model": "DS-1 Orbital Battle Station",
+        "manufacturer": "Imperial Department of Military Research, Sienar Fleet Systems",
+        "units": 150
     },
     {
         "id_swapi": 15,
-        "nombre": "Executor",
-        "modelo": "Executor-class star dreadnought",
-        "fabricante": "Kuat Drive Yards, Fondor Shipyards",
-        "unidades": 150
+        "name": "Executor",
+        "model": "Executor-class star dreadnought",
+        "manufacturer": "Kuat Drive Yards, Fondor Shipyards",
+        "units": 150
     },
     ...
 ]
 ```
 
-Return ERROR (Ejemplo):
+Return ERROR (Example):
 
 ```
 {
-    "error": "Sin resultados",
-    "errorMessage": "No se encontraron naves para esa búsqueda.",
+    "error": "no results",
+    "errorMessage": "No ships found for this search.",
     "params": {
         "busqueda": "xxx"
     }
